@@ -1,0 +1,11 @@
+id,nombre,edad,ciudad,medallas
+1,Ash Ketchum,10,Pueblo Paleta,ROCA;CASCADA;TRUENO;ARCOIRIS
+2,Gary Oak,11,Pueblo Paleta,ROCA;CASCADA;TRUENO;ARCOIRIS;ALMA;PANTANO;VOLCAN;TIERRA
+3,Misty,12,Ciudad Celeste,ROCA;CASCADA
+4,Brock,15,Ciudad Plateada,ROCA
+5,Erika,20,Ciudad Azulona,ROCA;CASCADA;TRUENO
+6,Sabrina,22,Ciudad Azafran,ROCA;CASCADA;TRUENO;ARCOIRIS;ALMA
+7,Koga,40,Ciudad Fucsia,ROCA;CASCADA;TRUENO;ARCOIRIS;ALMA;PANTANO
+8,Blaine,55,Isla Canela,
+9,Giovanni,45,Ciudad Verde,ROCA;CASCADA;TRUENO;ARCOIRIS;ALMA;PANTANO;VOLCAN
+10,Lt Surge,35,Ciudad Carmin,ROCA;CASCADA;TRUENO
