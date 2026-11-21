@@ -3,7 +3,7 @@ public class Persona {
     private int edad;
     private String ciudad;
 
-    public Persona(String nombre, int edad){
+    public Persona(String nombre, int edad, String ciudad){
         this.nombre = nombre;
         this.edad = edad;
         this.ciudad = ciudad;

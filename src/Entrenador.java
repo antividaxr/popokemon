@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Entrenador {
+public class Entrenador extends Persona {
 private int id;
 private ArrayList<Medallas> medallas;
 private ArrayList<Pokemon> equipo;
