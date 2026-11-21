@@ -26,7 +26,7 @@ public class Entrenador extends Persona {
 
     private static final int LIMITE = 5;
 
-    public boolean agregarpokemon(Pokemon pokemon) {
+    public boolean agregarPokemon(Pokemon pokemon) {
         if (equipo.size() >= LIMITE) {
             return false;
         }
