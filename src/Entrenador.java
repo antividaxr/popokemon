@@ -41,4 +41,10 @@ public class Entrenador extends Persona {
         medallas.add(medalla);
         return true;
     }
+
+    @Override
+    public String toString() {
+        return getnombre() + " (" + getcuidad() +") - " + medallas.size() + "medallas - " + equipo.size() + "/" + LIMITE +
+                "Pokemons";
+    }
 }
