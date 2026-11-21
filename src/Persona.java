@@ -11,7 +11,6 @@ public class Persona {
     public String getnombre(){
         return nombre;
     }
-
     public int getedad() {
         return edad;
     }
