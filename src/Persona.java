@@ -1,11 +1,12 @@
 public class Persona {
     private String nombre;
     private int edad;
-    private String cuidad;
+    private String ciudad;
 
     public Persona(String nombre, int edad){
         this.nombre = nombre;
         this.edad = edad;
+        this.ciudad = ciudad;
     }
     public String getnombre(){
         return nombre;
@@ -16,6 +17,6 @@ public class Persona {
     }
 
     public String getcuidad() {
-        return cuidad;
+        return ciudad;
     }
 }
