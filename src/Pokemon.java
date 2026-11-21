@@ -31,4 +31,14 @@ public class Pokemon {
     public Caracter getCaracter() {
         return caracter;
     }
+
+    @Override
+    public String toString() {
+        String res = "#" + numero + " " + nombre + "(" + caracter + ")" +"(" + tipo1;
+        if (tipo2 != null){
+        res = res + "/" + tipo2;
+        }
+        res = res + ")";
+        return res;
+    }
 }
