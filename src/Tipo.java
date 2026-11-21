@@ -1,4 +1,2 @@
 public enum Tipo {
-    FUEGO;
-
 }
