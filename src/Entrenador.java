@@ -11,4 +11,38 @@ public Entrenador(int id, String nombre, int edad, String ciudad) {
     this.medallas = new ArrayList<>();
     this.equipo = new ArrayList<>();
     }
+
+    public int getId() {
+        return id;
+    }
+    public ArrayList<Medallas> getMedallas() {
+         return new ArrayList<>(medallas);
+    }
+    public ArrayList<Pokemon> getEquipo() {
+        return new ArrayList<>(equipo);
+    }
+private static final int LIMITE = 5;
+public boolean agregarpokemon(Pokemon pokemon){
+ if(equipo.size()>=LIMITE){
+return false;
+}
+equipo.add(pokemon);
+return true;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
