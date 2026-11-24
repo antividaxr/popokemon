@@ -16,71 +16,83 @@ public class Menu {
         this.entrenadores = new ArrayList<>();
     }
 
-private void cargarPokemones() {
-    Random azar = new Random();
-    try (BufferedReader lector = new BufferedReader(new FileReader("pokemones.csv"))) {
-        lector.readLine();
-        String linea;
-        while ((linea = lector.readLine()) != null) {
-            String[] partes = linea.split(",", -1);
-            int numero = Integer.parseInt(partes[0]);
-            String nombre = partes[1];
-            Tipo tipo1 = Tipo.valueOf(partes[2]);
-            Tipo tipo2 = null;
-            if (!partes[3].isEmpty()) {
-                tipo2 = Tipo.valueOf(partes[3]);
-            }
-            Caracter caracter = Caracter.values()[azar.nextInt(10)];
-            pokedex.add(new Pokemon(numero, nombre, tipo1, tipo2, caracter));
-        }
-        System.out.println(pokedex.size());
-    }
-    catch(IOException e){
-        System.out.println("No se pudo leer pokemones.csv: " + e.getMessage());
-    }
-}
-private void cargarEntrenadores(){
-        try (BufferedReader lector = new BufferedReader(new FileReader("entrenadores.csv"))){
+    private void cargarPokemones() {
+        Random azar = new Random();
+        try (BufferedReader lector = new BufferedReader(new FileReader("pokemones.csv"))) {
             lector.readLine();
             String linea;
-            while ((linea = lector.readLine()) != null){
-                String [] partes = linea.split(",", -1);
+            while ((linea = lector.readLine()) != null) {
+                String[] partes = linea.split(",", -1);
+                int numero = Integer.parseInt(partes[0]);
+                String nombre = partes[1];
+                Tipo tipo1 = Tipo.valueOf(partes[2]);
+                Tipo tipo2 = null;
+                if (!partes[3].isEmpty()) {
+                    tipo2 = Tipo.valueOf(partes[3]);
+                }
+                Caracter caracter = Caracter.values()[azar.nextInt(10)];
+                pokedex.add(new Pokemon(numero, nombre, tipo1, tipo2, caracter));
+            }
+            System.out.println(pokedex.size());
+        } catch (IOException e) {
+            System.out.println("No se pudo leer pokemones.csv: " + e.getMessage());
+        }
+    }
+
+    private void cargarEntrenadores() {
+        try (BufferedReader lector = new BufferedReader(new FileReader("entrenadores.csv"))) {
+            lector.readLine();
+            String linea;
+            while ((linea = lector.readLine()) != null) {
+                String[] partes = linea.split(",", -1);
                 int id = Integer.parseInt(partes[0]);
                 String nombre = partes[1];
                 int edad = Integer.parseInt(partes[2]);
                 String ciudad = partes[3];
-                Entrenador entrenador = new Entrenador(id,nombre,edad,ciudad);
-                if (!partes[4].isEmpty()){
-                    for(String nombremedalla : partes[4].split(";")){
+                Entrenador entrenador = new Entrenador(id, nombre, edad, ciudad);
+                if (!partes[4].isEmpty()) {
+                    for (String nombremedalla : partes[4].split(";")) {
                         entrenador.agregarMedalla(Medallas.valueOf(nombremedalla));
                     }
                 }
                 entrenadores.add(entrenador);
             }
             System.out.println(entrenadores.size());
-        }
-        catch (IOException i) {
+        } catch (IOException i) {
             System.out.println("No se pudo leer entrenadores.csv:" + i.getMessage());
         }
-}
+    }
 
-private void cargarArchivos(){
-        if(!existenArchivos()){
-            System.out.println("Faltan los arcgivos tipo csv de la raiz del proyecto");
-        }
-}
-
-public void iniciar(){
+    public void iniciar() {
         int opcion;
-        do{
+        do {
             System.out.println("=== POPOKEMON ===");
-            System.out.println();
-            System.out.println();
-            System.out.println();
-            System.out.println();
-            System.out.println();
-            System.out.println();
+            System.out.println("1. Cergar archivos csv");
+            System.out.println("2. Escojer Entrenador");
+            System.out.println("3. Añadir Entrenador");
+            System.out.println("4. Añadir Pokemon");
+            System.out.println("5. Cerrar");
+            System.out.println("Opcion: ");
             opcion = leerEntero();
+
+            switch (opcion) {
+                case 1 -> cargarArchivos();
+                case 2, 3, 4 -> System.out.println("en proceso");
+                case 5 -> System.out.println("Hasta luego FIN");
+                default -> System.out.println("Es e 1 a 5, sabes leer?");
+            }
         }
-}
+        while (opcion != 5);
+    }
+    private void cargarArchivos () {
+        if (!existenArchivos()) {
+            System.out.println("Faltan los arcgivos tipo csv de la raiz del proyecto");
+            return;
+        }
+        pokedex.clear();
+        entrenadores.clear();
+        cargarPokemones();
+        cargarEntrenadores();
+        System.out.println("Los archovos" + pokedex.size() + "pokemones y " + entrenadores.size() + "entrenadores ya estan cargados");
+    }
 }
