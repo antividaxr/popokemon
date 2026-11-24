@@ -93,7 +93,9 @@ public class Menu {
 
             switch (opcion) {
                 case 1 -> cargarArchivos();
-                case 2, 3, 4 -> System.out.println("en proceso");
+                case 2 -> escogerEntrenador();
+                case 3 -> System.out.println("En proseso");
+                case 4 -> System.out.println("En proseso");
                 case 5 -> System.out.println("Hasta luego FIN");
                 default -> System.out.println("Es e 1 a 5, sabes leer?");
             }
@@ -110,5 +112,32 @@ public class Menu {
         cargarPokemones();
         cargarEntrenadores();
         System.out.println("Los archivos porkemones " + pokedex.size() + " y entrenadores " + entrenadores.size() + " ya estan cargados");
+    }
+    private void escogerEntrenador(){
+        if(entrenadores.isEmpty()){
+            System.out.println("Primero carga los archivos (opcion 1)");
+            return;
+        }
+        int opcion;
+        do{
+            System.out.println("=== Entrenadores ===");
+            System.out.println("1.Menu anterior");
+            for(int i = 0; i < entrenadores.size(); i++){
+                System.out.println((i + 2) + ". " +entrenadores.get(i).getnombre());
+            }
+            System.out.println("Opcion: ");
+            opcion = leerEntero();
+
+            if (opcion >= 2 && opcion <= entrenadores.size() + 1){
+                menuEntrenador(entrenadores.get(opcion - 2));
+            }
+            else if (opcion != 1){
+                System.out.println("Opcion invalidaaa");
+            }
+            while (opcion != 1);
+        }
+    }
+    private void menuEntrenador(){
+        System.out.println("Se selecciono a " + entrenadores);
     }
 }
