@@ -137,7 +137,7 @@ public class Menu {
         }
         while (opcion != 1);
     }
-    private void menuEntrenador(){
+    private void menuEntrenador(Entrenador entrenador){
         System.out.println("Se selecciono a " + entrenador);
     }
 }
