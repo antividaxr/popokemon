@@ -123,7 +123,7 @@ public class Menu {
             System.out.println("=== Entrenadores ===");
             System.out.println("1.Volver al menu anterior");
             for(int i = 0; i < entrenadores.size(); i++){
-                System.out.println((i + 2) + ". " +entrenadores.get(i).getnombre());
+                System.out.println((i + 2) + ". " + entrenadores.get(i).getnombre());
             }
             System.out.println("Opcion: ");
             opcion = leerEntero();
@@ -141,6 +141,32 @@ public class Menu {
         System.out.println("Se selecciono a " + entrenador);
     }
 
+    private void escogerPokemon(){
+        if (pokedex.isEmpty()){
+            System.out.println("Primero carga los archivos (opcion 1)");
+            return;
+        }
+        int opcion;
+        do{
+            System.out.println("=== Busca pokemones ===");
+            System.out.println("1.Volver al menu anterior");
+            for(int i = 0; i < pokedex.size(); i++){
+                System.out.println((i + 2) + ". " + pokedex.get(i).getNombre());
+            }
+            System.out.println("Opcion: ");
+            opcion = leerEntero();
 
+            if (opcion >= 2 && opcion <= pokedex.size() + 1){
+                menuPokedex(pokedex.get(opcion -2));
+            }
+            else if(opcion != 1){
+                System.out.println("Opcion invalida =(");
+            }
+        }
+        while (opcion != 1);
+    }
+    private void menuPokedex(Pokemon pokemon){
+        System.out.println("Se selecciono a " + pokemon);
+    }
 
 }
