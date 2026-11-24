@@ -42,10 +42,10 @@ private void cargarPokemones() {
     }
 }
 private void cargarEntrenadores(){
-        try (BufferedReader lector1 = new BufferedReader(new FileReader("entrenadores.csv"))){
-            lector1.readLine();
+        try (BufferedReader lector = new BufferedReader(new FileReader("entrenadores.csv"))){
+            lector.readLine();
             String linea;
-            while ((linea = lector1.readLine()) != null){
+            while ((linea = lector.readLine()) != null){
                 String [] partes = linea.split(",", -1);
                 int id = Integer.parseInt(partes[0]);
                 String nombre = partes[1];
@@ -57,6 +57,7 @@ private void cargarEntrenadores(){
                         entrenador.agregarMedalla(Medallas.valueOf(nombremedalla));
                     }
                 }
+                entrenadores.add(entrenador);
             }
             System.out.println(entrenadores.size());
         }

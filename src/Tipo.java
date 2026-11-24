@@ -6,7 +6,7 @@ public enum Tipo {
     ELECTRICO,
     HIELO,
     LUCHA,
-    VENEVO,
+    VENENO,
     TIERRA,
     VOLADOR,
     PSIQUICO,
