@@ -10,6 +10,7 @@ public class Menu {
     private Scanner scanner;
     private ArrayList<Pokemon> pokedex;
     private ArrayList<Entrenador> entrenadores;
+    private Entrenador entrenadorActual;
 
     public Menu() {
         this.scanner = new Scanner(System.in);
@@ -85,22 +86,23 @@ public class Menu {
             System.out.println("=== POPOKEMON ===");
             System.out.println("1. Cargar archivos csv");
             System.out.println("2. Escojer Entrenador");
-            System.out.println("3. Añadir Entrenador");
+            System.out.println("3. Escojer Pokemones");
             System.out.println("4. Añadir Pokemon");
-            System.out.println("5. Cerrar");
+            System.out.println("5. Ver equipo");
+            System.out.println("6. Cerrar");
             System.out.println("Opcion: ");
             opcion = leerEntero();
 
             switch (opcion) {
                 case 1 -> cargarArchivos();
                 case 2 -> escogerEntrenador();
-                case 3 -> System.out.println("En proseso");
+                case 3 -> escogerPokemon();
                 case 4 -> System.out.println("En proseso");
                 case 5 -> System.out.println("Hasta luego FIN");
                 default -> System.out.println("Es e 1 a 5, sabes leer?");
             }
         }
-        while (opcion != 5);
+        while (opcion != 6);
     }
     private void cargarArchivos () {
         if (!existenArchivos()) {
@@ -138,10 +140,15 @@ public class Menu {
         while (opcion != 1);
     }
     private void menuEntrenador(Entrenador entrenador){
-        System.out.println("Se selecciono a " + entrenador);
+        entrenadorActual = entrenador;
+        System.out.println("Se selecciono a " + entrenador.getnombre());
     }
 
     private void escogerPokemon(){
+        if(entrenadorActual == null){
+            System.out.println("primero escoje un entrenador en el primer menu (opcion 2)");
+            return;
+        }
         if (pokedex.isEmpty()){
             System.out.println("Primero carga los archivos (opcion 1)");
             return;
@@ -166,7 +173,23 @@ public class Menu {
         while (opcion != 1);
     }
     private void menuPokedex(Pokemon pokemon){
-        System.out.println("Se selecciono a " + pokemon);
+        if(entrenadorActual.agregarPokemon(pokemon)){
+            System.out.println(pokemon.getNombre() +" se agrego al equipo de " + entrenadorActual.getnombre());
+        }
+        else {
+            System.out.println("El equipo esta en el limite(5 pokemones)");
+        }
+    }
+
+    private void verEquipo(){
+        if(entrenadorActual == null) {
+            System.out.println("Primero escoge entrenador (opcion 2)");
+            return;
+        }
+        System.out.println("\n" + entrenadorActual);
+        for(Pokemon P : entrenadorActual. getEquipo()){
+            System.out.println("- " + P);
+        }
     }
 
 }
