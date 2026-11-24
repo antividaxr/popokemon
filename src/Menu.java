@@ -83,7 +83,7 @@ public class Menu {
         int opcion;
         do {
             System.out.println("=== POPOKEMON ===");
-            System.out.println("1. Cergar archivos csv");
+            System.out.println("1. Cargar archivos csv");
             System.out.println("2. Escojer Entrenador");
             System.out.println("3. Añadir Entrenador");
             System.out.println("4. Añadir Pokemon");
@@ -102,13 +102,13 @@ public class Menu {
     }
     private void cargarArchivos () {
         if (!existenArchivos()) {
-            System.out.println("Faltan los arcgivos tipo csv de la raiz del proyecto");
+            System.out.println("Faltan los archivos tipo csv de la raiz del proyecto");
             return;
         }
         pokedex.clear();
         entrenadores.clear();
         cargarPokemones();
         cargarEntrenadores();
-        System.out.println("Los archivos" + pokedex.size() + "pokemones y " + entrenadores.size() + "entrenadores ya estan cargados");
+        System.out.println("Los archivos porkemones " + pokedex.size() + " y entrenadores " + entrenadores.size() + " ya estan cargados");
     }
 }
