@@ -129,15 +129,15 @@ public class Menu {
             opcion = leerEntero();
 
             if (opcion >= 2 && opcion <= entrenadores.size() + 1){
-                menuEntrenador(entrenadores.get(opcion - 2));
+                menuEntrenador (entrenadores.get(opcion - 2));
             }
             else if (opcion != 1){
                 System.out.println("Opcion invalidaaa");
             }
-            while (opcion != 1);
         }
+        while (opcion != 1);
     }
     private void menuEntrenador(){
-        System.out.println("Se selecciono a " + entrenadores);
+        System.out.println("Se selecciono a " + entrenador);
     }
 }
