@@ -16,29 +16,28 @@ public class Menu {
         this.entrenadores = new ArrayList<>();
     }
 
-private void cargarpokemones(){
-        Random azar = new Random();
-        try (BufferedReader lector = new BufferedReader(new FileReader("pokemones.csv"))){
-            lector.readLine();
-            String linea;
-            while ((linea = lector.readLine()) != null){
-                String[] partes = linea.split(",",-1);
-                int numero = Integer.parseInt(partes[0]);
-                String nombre = partes[1];
-                Tipo tipo1 = Tipo.valueOf(partes[2]);
-                Tipo tipo2 = null;
-                if (!partes[3].isEmpty()){
-                    tipo2 = Tipo.valueOf(partes[3]);
-                }
-                Caracter caracter = Caracter.values()[azar.nextInt(11)];
-                pokedex.add(new Pokemon(numero,nombre,tipo1,tipo2,caracter));
+private void cargarpokemones() {
+    Random azar = new Random();
+    try (BufferedReader lector = new BufferedReader(new FileReader("pokemones.csv"))) {
+        lector.readLine();
+        String linea;
+        while ((linea = lector.readLine()) != null) {
+            String[] partes = linea.split(",", -1);
+            int numero = Integer.parseInt(partes[0]);
+            String nombre = partes[1];
+            Tipo tipo1 = Tipo.valueOf(partes[2]);
+            Tipo tipo2 = null;
+            if (!partes[3].isEmpty()) {
+                tipo2 = Tipo.valueOf(partes[3]);
             }
-            catch (IOException e){
-                System.out.println("No se pudo leer pokemones.csv: " + e.getMessage());
-            }
-            System.out.println(pokedex.size());
+            Caracter caracter = Caracter.values()[azar.nextInt(11)];
+            pokedex.add(new Pokemon(numero, nombre, tipo1, tipo2, caracter));
         }
-        cargarpokemones();
+        System.out.println(pokedex.size());
+    }
+    catch(IOException e){
+        System.out.println("No se pudo leer pokemones.csv: " + e.getMessage());
+    }
 }
 private void cargarEntrenadores(){
         Random azar = new Random();
@@ -52,13 +51,13 @@ private void cargarEntrenadores(){
                 int edad = Integer.parseInt(partes[2]);
                 String ciudad = partes[3];
                 Medallas medallas = Medallas.valueOf(partes[4]);
-                entrenadores.add(new Entrenador(id,nombre,edad,ciudad,medallas));
-            }
-            catch (IOException i){
-                System.out.println("No se pudo leer entrenadores.csv" +i.getMessager());
+                entrenadores.add(new Entrenador(id,nombre,edad,ciudad));
             }
             System.out.println(entrenadores.size());
         }
-        cargarEntrenadores();
+        catch (IOException i) {
+            System.out.println("No se pudo leer entrenadores.csv:" + i.getMessage());
+        }
 }
+
 }
