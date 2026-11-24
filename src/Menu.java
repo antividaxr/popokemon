@@ -213,4 +213,39 @@ public class Menu {
         }
     }
 
+    private void agregarPokemon(){
+        if(pokedex.isEmpty()){
+            System.out.println("Primero cargar los archivos (opcion 1)");
+            return;
+        }
+        System.out.print("Nombre: ");
+        String nombre = scanner.nextLine().trim();
+        if (nombre.isEmpty()){
+            System.out.println("El nombre no puede estar vacio");
+            return;
+        }
+        for (Pokemon p : pokedex){
+            if(p.getNombre().equalsIgnoreCase(nombre)){
+                System.out.println("Ese pokemon ya existe");
+                return;
+            }
+        }
+        int cantidad = Tipo.values().length;
+        mostrartipos();
+        int eleccion1 = leerEnRango("Tipo 1: ", 1, cantidad);
+        int eleccion2 = leerEnRango("Tipo 2 (0 = ninguno) : ", 0, cantidad);
+        Tipo tipo1 = Tipo.values()[eleccion1 -1];
+        Tipo tipo2 = null;
+        if(eleccion2 != 0){
+            tipo2 = Tipo.values()[eleccion2 -1];
+        }
+
+        int nivel = leerEnRango("Caracter (1 DOCIL - 10 INDOMABLE): ",1,10);
+        Caracter caracter = Caracter.values()[nivel -1];
+
+        Pokemon nuevo = new Pokemon(pokedex.size() +1,nombre,tipo1,tipo2,caracter);
+        pokedex.add(nuevo);
+        System.out.println("Se añadio a: "+ nuevo);
+    }
+
 }
