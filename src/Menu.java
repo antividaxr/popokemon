@@ -35,7 +35,6 @@ public class Menu {
                 Caracter caracter = Caracter.values()[azar.nextInt(10)];
                 pokedex.add(new Pokemon(numero, nombre, tipo1, tipo2, caracter));
             }
-            System.out.println(pokedex.size());
         } catch (IOException e) {
             System.out.println("No se pudo leer pokemones.csv: " + e.getMessage());
         }
@@ -59,7 +58,6 @@ public class Menu {
                 }
                 entrenadores.add(entrenador);
             }
-            System.out.println(entrenadores.size());
         } catch (IOException i) {
             System.out.println("No se pudo leer entrenadores.csv:" + i.getMessage());
         }
