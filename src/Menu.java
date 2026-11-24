@@ -97,7 +97,7 @@ public class Menu {
                 case 1 -> cargarArchivos();
                 case 2 -> escogerEntrenador();
                 case 3 -> escogerPokemon();
-                case 4 -> System.out.println(" O"); //añadirPokemon
+                case 4 -> agregarPokemon();
                 case 5 -> verEquipo();
                 case 6 -> System.out.println("Haste luedo FIN");
                 default -> System.out.println("Es e 1 a 6, sabes leer?");
@@ -247,5 +247,4 @@ public class Menu {
         pokedex.add(nuevo);
         System.out.println("Se añadio a: "+ nuevo);
     }
-
 }
