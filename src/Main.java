@@ -1,3 +1,3 @@
 void main() {
-new Menu();
+new Menu().iniciar();
 }

@@ -14,8 +14,6 @@ public class Menu {
         this.scanner = new Scanner(System.in);
         this.pokedex = new ArrayList<>();
         this.entrenadores = new ArrayList<>();
-        cargarPokemones();
-        cargarEntrenadores();
     }
 
 private void cargarPokemones() {
@@ -63,6 +61,26 @@ private void cargarEntrenadores(){
         }
         catch (IOException i) {
             System.out.println("No se pudo leer entrenadores.csv:" + i.getMessage());
+        }
+}
+
+private void cargarArchivos(){
+        if(!existenArchivos()){
+            System.out.println("Faltan los arcgivos tipo csv de la raiz del proyecto");
+        }
+}
+
+public void iniciar(){
+        int opcion;
+        do{
+            System.out.println("=== POPOKEMON ===");
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            opcion = leerEntero();
         }
 }
 }
