@@ -193,6 +193,24 @@ public class Menu {
         }
     }
 
+    private int leerEnRango(String mensaje, int min, int max){
+        int valor;
+        do{
+            System.out.println(mensaje);
+            valor = leerEntero();
+            if(valor < min || valor > max){
+                System.out.println("Escribe un numero entre " + min + " y " + max);
+            }
+        }
+        while (valor < min || valor > max);
+        return valor;
+    }
 
+    private void mostrartipos(){
+        Tipo[] tipos = Tipo.values();
+        for(int i = 0 ; i < tipos.length; i++){
+            System.out.println((i = 1) + ". " + tipos[1]);
+        }
+    }
 
 }
