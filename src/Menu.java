@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -63,6 +64,21 @@ public class Menu {
         }
     }
 
+    private int leerEntero(){
+        try{
+            return Integer.parseInt(scanner.nextLine().trim());
+        }
+        catch (NumberFormatException e){
+            return -1;
+        }
+    }
+
+    private boolean existenArchivos(){
+        File archivoPokemones = new File("pokemones.csv");
+        File archivoEntrenadores = new File("entrenadores.csv");
+        return archivoPokemones.exists() && archivoEntrenadores.exists();
+    }
+
     public void iniciar() {
         int opcion;
         do {
@@ -93,6 +109,6 @@ public class Menu {
         entrenadores.clear();
         cargarPokemones();
         cargarEntrenadores();
-        System.out.println("Los archovos" + pokedex.size() + "pokemones y " + entrenadores.size() + "entrenadores ya estan cargados");
+        System.out.println("Los archivos" + pokedex.size() + "pokemones y " + entrenadores.size() + "entrenadores ya estan cargados");
     }
 }
