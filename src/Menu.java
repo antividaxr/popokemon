@@ -98,7 +98,8 @@ public class Menu {
                 case 2 -> escogerEntrenador();
                 case 3 -> escogerPokemon();
                 case 4 -> System.out.println("En proseso");
-                case 5 -> System.out.println("Hasta luego FIN");
+                case 5 -> verEquipo();
+                case 6 -> System.out.println("Haste luedo FIN");
                 default -> System.out.println("Es e 1 a 5, sabes leer?");
             }
         }
