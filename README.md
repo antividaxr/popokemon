@@ -4,4 +4,15 @@ parcial de segundo corte
 2. main ejecuta el menu dandonos las opciones de 1.cargar archino csv 2.escojer entrenador 3.añadir entrenador 4.añadir pokemon 5.cerrar
 3. Al escojer (2) se carga otro menu con los entrenadores y la opcion 1.menu anterion. el resto de las opciones sean entrenadores
 4. despues de escojer entrenador podemos buscar pokemones y añadirños al equipo siendo el limite de 5
-5.
+5.private void escogerPokemon(){
+   if (pokedex.isEmpty()){
+   System.out.println("Primero carga los archivos (opcion 1)");
+   return;
+   }
+   int opcion;
+   do{
+   System.out.println("=== Busca pokemones ===");
+   System.out.println("1.Volver al menu anterior");
+
+        }
+   }

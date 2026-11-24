@@ -121,7 +121,7 @@ public class Menu {
         int opcion;
         do{
             System.out.println("=== Entrenadores ===");
-            System.out.println("1.Menu anterior");
+            System.out.println("1.Volver al menu anterior");
             for(int i = 0; i < entrenadores.size(); i++){
                 System.out.println((i + 2) + ". " +entrenadores.get(i).getnombre());
             }
@@ -140,4 +140,7 @@ public class Menu {
     private void menuEntrenador(Entrenador entrenador){
         System.out.println("Se selecciono a " + entrenador);
     }
+
+
+
 }
