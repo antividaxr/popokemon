@@ -14,9 +14,11 @@ public class Menu {
         this.scanner = new Scanner(System.in);
         this.pokedex = new ArrayList<>();
         this.entrenadores = new ArrayList<>();
+        cargarPokemones();
+        cargarEntrenadores();
     }
 
-private void cargarpokemones() {
+private void cargarPokemones() {
     Random azar = new Random();
     try (BufferedReader lector = new BufferedReader(new FileReader("pokemones.csv"))) {
         lector.readLine();
@@ -30,7 +32,7 @@ private void cargarpokemones() {
             if (!partes[3].isEmpty()) {
                 tipo2 = Tipo.valueOf(partes[3]);
             }
-            Caracter caracter = Caracter.values()[azar.nextInt(11)];
+            Caracter caracter = Caracter.values()[azar.nextInt(10)];
             pokedex.add(new Pokemon(numero, nombre, tipo1, tipo2, caracter));
         }
         System.out.println(pokedex.size());
@@ -40,7 +42,6 @@ private void cargarpokemones() {
     }
 }
 private void cargarEntrenadores(){
-        Random azar = new Random();
         try (BufferedReader lector1 = new BufferedReader(new FileReader("entrenadores.csv"))){
             lector1.readLine();
             String linea;
@@ -50,8 +51,12 @@ private void cargarEntrenadores(){
                 String nombre = partes[1];
                 int edad = Integer.parseInt(partes[2]);
                 String ciudad = partes[3];
-                Medallas medallas = Medallas.valueOf(partes[4]);
-                entrenadores.add(new Entrenador(id,nombre,edad,ciudad));
+                Entrenador entrenador = new Entrenador(id,nombre,edad,ciudad);
+                if (!partes[4].isEmpty()){
+                    for(String nombremedalla : partes[4].split(";")){
+                        entrenador.agregarMedalla(Medallas.valueOf(nombremedalla));
+                    }
+                }
             }
             System.out.println(entrenadores.size());
         }
@@ -59,5 +64,4 @@ private void cargarEntrenadores(){
             System.out.println("No se pudo leer entrenadores.csv:" + i.getMessage());
         }
 }
-
 }
