@@ -9,3 +9,4 @@ parcial de segundo corte
 6. Ya en el menu principal podemos tomar la opcion (3), para obtener una lista con los 150 pokemones, aca  
    podemos escojer pokemones y completar el equipo del entrenador elegido(Limite = 5),si tratamos de añadir pokemones con el equipo lleno salta un error , no podemos elegir pokemones sin altes elegir un entrenador y si se intenta salta un error
 7. la opcion (5) del menu principal nos da al entrenador elegido, y una lista de los pokemones de su equipo con sus respectivas caracteristicas
+8. La opcion 6 cierra el programa(lo finaliza)

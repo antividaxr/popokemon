@@ -206,8 +206,8 @@ public class Menu {
 
     private void mostrartipos(){
         Tipo[] tipos = Tipo.values();
-        for(int i = 0 ; i < tipos.length; i++){
-            System.out.println((i = 1) + ". " + tipos[1]);
+        for(int i = 0; i < tipos.length; i++){
+            System.out.println((i + 1) + ". " + tipos[i]);
         }
     }
 
@@ -231,7 +231,7 @@ public class Menu {
         int cantidad = Tipo.values().length;
         mostrartipos();
         int eleccion1 = leerEnRango("Tipo 1: ", 1, cantidad);
-        int eleccion2 = leerEnRango("Tipo 2 (0 = ninguno) : ", 0, cantidad);
+        int eleccion2 = leerEnRango("Tipo 2 (0 = ninguno o 1 DOCIL - 10 INDOMABLE) : ", 0, cantidad);
         Tipo tipo1 = Tipo.values()[eleccion1 -1];
         Tipo tipo2 = null;
         if(eleccion2 != 0){
